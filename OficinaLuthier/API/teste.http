@@ -1,0 +1,31 @@
+### Listar Clientes
+GET http://localhost:5028/clientes/
+
+### Buscar Cliente
+
+### Cadastrar Cliente
+
+### Deletar Cliente
+
+### Alterar Cliente
+
+### Listar Instrumento
+
+### Buscar Instrumento
+
+### Cadastrar Instrumento
+
+### Deletar Instrumento
+
+### Alterar Instrumento
+
+
+### Listar OrdemDeServico
+
+### Buscar OrdemDeServico
+
+### Cadastrar OrdemDeServico
+
+### Deletar OrdemDeServico
+
+### Alterar OrdemDeServico
