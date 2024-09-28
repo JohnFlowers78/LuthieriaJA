@@ -1,3 +1,4 @@
+###=============================================================================
 ### Listar Clientes
 GET http://localhost:5028/clientes/
 
@@ -9,6 +10,8 @@ GET http://localhost:5028/clientes/
 
 ### Alterar Cliente
 
+###=============================================================================
+
 ### Listar Instrumento
 
 ### Buscar Instrumento
@@ -19,6 +22,7 @@ GET http://localhost:5028/clientes/
 
 ### Alterar Instrumento
 
+###=============================================================================
 
 ### Listar OrdemDeServico
 
@@ -29,3 +33,5 @@ GET http://localhost:5028/clientes/
 ### Deletar OrdemDeServico
 
 ### Alterar OrdemDeServico
+
+###=============================================================================
