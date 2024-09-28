@@ -1,37 +1,86 @@
 ###=============================================================================
 ### Listar Clientes
-GET http://localhost:5028/clientes/
+GET http://localhost:5028/cliente/
 
 ### Buscar Cliente
-
+GET http://localhost:5028/cliente/1
 ### Cadastrar Cliente
+POST http://localhost:5028/cliente/
+Content-Type: application/json
 
+{
+    "Nome" : "Boris",
+    "Email" : "boris@gmail.com",
+    "Telefone" : "998765432",
+    "Instrumentos" : [
+
+    ]
+}
 ### Deletar Cliente
-
+DELETE http://localhost:5028/cliente/1
 ### Alterar Cliente
+PUT http://localhost:5028/cliente/1
+Content-Type: application/json
 
+{
+    "Nome" : "Boris Atualizado",
+    "Email" : "boris@gmail.com",
+    "Telefone" : "998765432"
+}
 ###=============================================================================
 
-### Listar Instrumento
+### Listar funcionario
+GET http://localhost:5028/funcionario/
 
-### Buscar Instrumento
+### Buscar funcionario
+GET http://localhost:5028/funcionario/1
+### Cadastrar funcionario
+POST http://localhost:5028/funcionario/
+Content-Type: application/json
 
-### Cadastrar Instrumento
+{
+    "Nome" : "Marcos",
+    "Cargo" : "Luthier",
+}
+### Deletar funcionario
+DELETE http://localhost:5028/funcionario/1
+### Alterar funcionario
+PUT http://localhost:5028/funcionario/1
+Content-Type: application/json
 
-### Deletar Instrumento
-
-### Alterar Instrumento
-
+{
+    "Nome" : "Marcos",
+    "Cargo" : "Luthier Senior",
+}
 ###=============================================================================
 
 ### Listar OrdemDeServico
+GET http://localhost:5028/ordemservico/
 
 ### Buscar OrdemDeServico
-
+GET http://localhost:5028/ordemservico/1
 ### Cadastrar OrdemDeServico
+POST http://localhost:5028/ordemservico/
+Content-Type: application/json
 
+{
+    "DescricaoServico" : "Trocar cortiça",
+    "FuncionarioId" : "1",
+    "Status" : "Pendente",
+    "Instrumento" : "Clarinete",
+    "ValorEstimado" : 150.00
+}
 ### Deletar OrdemDeServico
-
+DELETE http://localhost:5028/ordemservico/1
 ### Alterar OrdemDeServico
+PUT http://localhost:5028/ordemservico/1
+Content-Type: application/json
 
+{
+    "DescricaoServico" : "Trocar cortiça",
+    "FuncionarioId" : "1",
+    "Status" : "Finalizado",
+    "Instrumento" : "Clarinete",
+    "ValorEstimado" : 150.00
+}
 ###=============================================================================

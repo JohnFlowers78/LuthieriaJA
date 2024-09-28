@@ -17,14 +17,21 @@ List<Cliente> clientes = [
     new Cliente { Nome = "Camisa Social", Telefone = "41995234578" },
     new Cliente { Nome = "Tênis Casual", Telefone = "45987889339" }
 ];
+List<Funcionario> funcionarios = 
+[
+    new Funcionario{Nome = "Cleiton", Cargo = "Luthier"},
+    new Funcionario{Nome = "Antônio", Cargo = "Luthier Aprendiz"}
+];
+List<OrdemDeServico> ordensServicos = 
+[
+    new OrdemDeServico{DescricaoServico = "Lustragem", FuncionarioId = null, Instrumento = "Trombone", Status = "Pendente", ValorEstimado = 130.00},
+    new OrdemDeServico{DescricaoServico = "Revisão", FuncionarioId = null, Instrumento = "Fagote", Status = "Pendente", ValorEstimado = 200.00}
+];
 
-app.MapGet("/weatherforecast", () =>
+
+app.MapGet("/cliente", () =>
 {
-    return clientes;
-});
-
-app.MapPost("", () => {
-
+    return Results.Ok(clientes.ToList());
 });
 app.MapPost("", () => {
 
