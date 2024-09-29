@@ -32,34 +32,61 @@ List<OrdemDeServico> ordensServicos =
 //  ###Listar Clientes
 app.MapGet("/cliente", () =>
 {
+    if(clientes.Count == 0){
+        return Results.NotFound();
+    }
     return Results.Ok(clientes.ToList());
 });
-//  ###Cadastrar
-app.MapPost("/cliente/cadastrar", () => {
-
+//  ###Cadastrar Clientes
+app.MapPost("/cliente/cadastrar", ([FromBody] Cliente cliente) => {
+    Cliente clienteTemp = cliente;
+    var confere = clientes.FirstOrDefault(x => x.Cpf == clienteTemp.Cpf);
+    if (confere == null){
+        clientes.Add(clienteTemp);
+        return Results.Ok(clienteTemp);
+    }
+    return Results.BadRequest("Cliente já cadastrado");
 });
-//  ###Buscar
-app.MapGet("", () => {
-
+//  ###Buscar Clientes
+app.MapGet("cliente/buscar/{cpf}", ([FromRoute] string cpf) => {
+    Cliente? cliente = clientes.FirstOrDefault(x => x.Cpf == cpf);
+    if (cliente == null){
+        return Results.NotFound("Cliente não encontrado");
+    }
+    return Results.Ok(cliente);
 });
-app.MapDelete("", () => {
-
+//  ###Alterar Clientes
+app.MapPut("cliente/alterar/{cpf}", ([FromBody] Cliente cliente) => {
+    Cliente? clienteTemp = clientes.FirstOrDefault(x => x.Cpf == cliente.Cpf);
+    if (clienteTemp == null){
+        return Results.NotFound();
+    }
+    clienteTemp.Nome = cliente.Nome;
+    clienteTemp.Telefone = cliente.Telefone;
+    clientes.Add(clienteTemp);
+    return Results.Ok(clienteTemp);
 });
-app.MapPut("", () => {
-
+//  ###Deletar Clientes
+app.MapDelete("cliente/deletar/{cpf}", ([FromRoute] string cpf) => {
+    Cliente? cliente = clientes.FirstOrDefault(x => x.Cpf == cpf);
+    if (cliente == null){
+        return Results.NotFound("Cliente não encontrado");
+    }
+    clientes.Remove(cliente);
+    return Results.Ok(cliente);
 });
 //______________________________________________________________________________
 //  ###Listar Funcionarios
 app.MapGet("/funcionario", () => {
     return funcionarios;
 });
-//  ###Cadastrar
+//  ###Cadastrar Funcionarios
 app.MapPost("/funcionario/cadastrar", ([FromBody] Funcionario funcionario) => 
 {
     funcionarios.Add(funcionario);
     return Results.Created("", funcionarios);
 });
-//  ###Buscar
+//  ###Buscar Funcionarios
 app.MapGet("/funcionario/buscar/{registro}", ([FromRoute] string registro) => 
 {
     Funcionario? funcionario = funcionarios.Find(x => x.Registro == registro);
@@ -69,6 +96,7 @@ app.MapGet("/funcionario/buscar/{registro}", ([FromRoute] string registro) =>
     }
     return Results.NotFound();
 });
+//  ###Deletar Funcionarios
 app.MapDelete("/funcionario/deletar/{registro}", ([FromRoute] string registro) => 
 {
     Funcionario? funcionario = funcionarios.Find(x => x.Registro == registro);
@@ -78,6 +106,7 @@ app.MapDelete("/funcionario/deletar/{registro}", ([FromRoute] string registro) =
     }
     return Results.NotFound();
 });
+//  ###Alterar Funcionarios
 app.MapPut("/funcionario/alterar/{registro}", ([FromBody] Funcionario funcionarioAlterado) => 
 {
     Funcionario? funcionario = funcionarios.Find(x => x.Id == funcionarioAlterado.Id);
@@ -90,6 +119,7 @@ app.MapPut("/funcionario/alterar/{registro}", ([FromBody] Funcionario funcionari
     }
     return Results.NotFound();
 });
+
 //______________________________________________________________________________
 //  ###Listar Ordens_De_Serviços
 app.MapGet("/ordemservico", () => 
@@ -103,7 +133,7 @@ app.MapPost("/ordemservico/cadastrar", ([FromBody] OrdemDeServico ordermDeServic
     return Results.Created("", ordensServicos);
 });
 //  ###Buscar Ordens_De_Serviços
-app.MapGet("/ordemservico/buscar", ([FromRoute] Guid id) => 
+app.MapGet("/ordemservico/buscar/{id}", ([FromRoute] Guid id) => 
 {
     OrdemDeServico? ordemDeServico = ordensServicos.Find(x => x.Id == id);
     if (ordemDeServico != null)
@@ -113,7 +143,7 @@ app.MapGet("/ordemservico/buscar", ([FromRoute] Guid id) =>
     return Results.NotFound();
 });
 //  ###Deletar Ordens_De_Serviços
-app.MapDelete("/ordemservico/deletar", ([FromRoute] Guid id) => 
+app.MapDelete("/ordemservico/deletar/{id}", ([FromRoute] Guid id) => 
 {
     OrdemDeServico? ordemDeServico = ordensServicos.Find(x => x.Id == id);
     if (ordemDeServico != null)
@@ -154,4 +184,3 @@ app.MapPut("/ordemservico/alterar", ([FromBody] OrdemDeServico ordemDeServicoAlt
 // });
 
 app.Run();
-
