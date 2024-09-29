@@ -3,28 +3,24 @@
 GET http://localhost:5028/cliente/
 
 ### Buscar Cliente
-GET http://localhost:5028/cliente/1
+GET http://localhost:5028/cliente/1234
 ### Cadastrar Cliente
 POST http://localhost:5028/cliente/
 Content-Type: application/json
 
 {
     "Nome" : "Boris",
-    "Email" : "boris@gmail.com",
     "Telefone" : "998765432",
-    "Instrumentos" : [
-
-    ]
+    "Cpf" : "3192"
 }
 ### Deletar Cliente
-DELETE http://localhost:5028/cliente/1
+DELETE http://localhost:5028/cliente/3192
 ### Alterar Cliente
-PUT http://localhost:5028/cliente/1
+PUT http://localhost:5028/cliente/3192
 Content-Type: application/json
 
 {
     "Nome" : "Boris Atualizado",
-    "Email" : "boris@gmail.com",
     "Telefone" : "998765432"
 }
 ###=============================================================================
@@ -33,7 +29,7 @@ Content-Type: application/json
 GET http://localhost:5028/funcionario/
 
 ### Buscar funcionario
-GET http://localhost:5028/funcionario/1
+GET http://localhost:5028/funcionario/20
 ### Cadastrar funcionario
 POST http://localhost:5028/funcionario/
 Content-Type: application/json
@@ -41,11 +37,12 @@ Content-Type: application/json
 {
     "Nome" : "Marcos",
     "Cargo" : "Luthier",
+    "Registro" : "27"
 }
 ### Deletar funcionario
-DELETE http://localhost:5028/funcionario/1
+DELETE http://localhost:5028/funcionario/27
 ### Alterar funcionario
-PUT http://localhost:5028/funcionario/1
+PUT http://localhost:5028/funcionario/27
 Content-Type: application/json
 
 {
@@ -68,6 +65,7 @@ Content-Type: application/json
     "FuncionarioId" : "1",
     "Status" : "Pendente",
     "Instrumento" : "Clarinete",
+    "ClienteId" : "4",
     "ValorEstimado" : 150.00
 }
 ### Deletar OrdemDeServico
@@ -78,9 +76,7 @@ Content-Type: application/json
 
 {
     "DescricaoServico" : "Trocar cortiça",
-    "FuncionarioId" : "1",
     "Status" : "Finalizado",
-    "Instrumento" : "Clarinete",
     "ValorEstimado" : 150.00
 }
 ###=============================================================================
