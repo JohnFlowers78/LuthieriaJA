@@ -1,11 +1,16 @@
 ###=============================================================================
 ###=============================================================================
-### Listar Clientes
+###           C.L.I.E.N.T.E.S                                                ###
+###          -----------------                                               ###
+###=============================================================================
+###=============================================================================
+###               Listar
 GET http://localhost:5028/cliente/
 
-### Buscar Cliente
+###               Buscar
 GET http://localhost:5028/cliente/buscar/1234
-### Cadastrar Cliente
+
+###              Cadastrar
 POST http://localhost:5028/cliente/cadastrar
 Content-Type: application/json
 
@@ -14,9 +19,11 @@ Content-Type: application/json
     "Telefone" : "998765432",
     "Cpf" : "3192"
 }
-### Deletar Cliente
+
+###              Deletar
 DELETE http://localhost:5028/cliente/deletar/3192
-### Alterar Cliente
+
+###              Alterar
 PUT http://localhost:5028/cliente/alterar/3192
 Content-Type: application/json
 
@@ -27,12 +34,17 @@ Content-Type: application/json
 
 ###=============================================================================
 ###=============================================================================
-### Listar Funcionarios
+###      F.U.N.C.I.O.R.A.R.I.O.S                                             ###
+###     -------------------------                                            ###
+###=============================================================================
+###=============================================================================
+###              Listar
 GET http://localhost:5028/funcionario/
 
-### Buscar funcionario
+###              Buscar
 GET http://localhost:5028/funcionario/buscar/20
-### Cadastrar funcionario
+
+###            Cadastrar
 POST http://localhost:5028/funcionario/cadastrar
 Content-Type: application/json
 
@@ -41,9 +53,10 @@ Content-Type: application/json
     "Cargo" : "Luthier",
     "Registro" : "27"
 }
-### Deletar funcionario
+###             Deletar
 DELETE http://localhost:5028/funcionario/deletar/27
-### Alterar funcionario
+
+###             Alterar
 PUT http://localhost:5028/funcionario/alterar/27
 Content-Type: application/json
 
@@ -54,12 +67,18 @@ Content-Type: application/json
 
 ###=============================================================================
 ###=============================================================================
-### Listar OrdensDeServicos
+###          P.E.D.I.D.O.S                          ↘️               ↙️     ###
+###         ---------------                           OrdensDeServicos       ###
+###=============================================================================
+###=============================================================================
+
+###             Listar 
 GET http://localhost:5028/ordemservico/
 
-### Buscar OrdemDeServico
+###             Buscar
 GET http://localhost:5028/ordemservico/buscar/1
-### Cadastrar OrdemDeServico
+
+###            Cadastrar
 POST http://localhost:5028/ordemservico/cadastrar/
 Content-Type: application/json
 
@@ -71,9 +90,11 @@ Content-Type: application/json
     "ClienteId" : "4",
     "ValorEstimado" : 150.00
 }
-### Deletar OrdemDeServico
+
+###            Deletar
 DELETE http://localhost:5028/ordemservico/deletar/1
-### Alterar OrdemDeServico
+
+###            Alterar
 PUT http://localhost:5028/ordemservico/alterar/1
 Content-Type: application/json
 
@@ -85,3 +106,24 @@ Content-Type: application/json
 
 ###=============================================================================
 ###=============================================================================
+###      M.É.T.O.D.O.S   Ú.T.E.I.S   P/   E.S.T.E   P.R.O.J.E.T.O            ###
+###     --------------  ----------  ---- --------- --------------            ###
+###=============================================================================
+###=============================================================================
+###             Listar ordens de serviço ordenadas por data de criação
+GET http://localhost:5028/
+
+###             Buscar ordens de serviço por descrições semelhantes
+GET http://localhost:5028/buscar/troca
+
+###             Buscar ordens de serviço com status "Em Aberto"
+GET http://localhost:5028/status/aberto
+
+###             Buscar manutenções concluídas de um cliente específico
+GET http://localhost:5028/cliente/b195a2c3-f255-4ec9-8577-3ed39a2e8b13/concluidas
+
+###             Buscar todas as manutenções de um cliente (finalizadas ou não)
+GET http://localhost:5028/cliente/b195a2c3-f255-4ec9-8577-3ed39a2e8b13/todas
+
+###             Buscar ordens de serviço realizadas por um funcionário específico
+GET http://localhost:5028/funcionario/83f5b6e0-2f53-4a8e-90c5-ecf78f0f9e18/concertos

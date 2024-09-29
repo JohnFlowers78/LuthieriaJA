@@ -9,7 +9,6 @@ public class OrdemDeServico
     Id = Guid.NewGuid();
     CriadoEm = DateTime.Now;
   }
-  public Guid Id { get; set; }
   public string? DescricaoServico { get; set; }
   public string? Instrumento { get; set; }
    public string? Status { get; set; }
@@ -19,4 +18,5 @@ public class OrdemDeServico
   public Guid FuncionarioId { get; set; }
   public Funcionario? Funcionario { get; set; }
   public DateTime CriadoEm { get; set; }
+  public Guid Id { get; set; }
 }

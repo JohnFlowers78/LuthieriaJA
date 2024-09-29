@@ -4,28 +4,40 @@ using Microsoft.AspNetCore.Mvc;
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-List<Cliente> clientes = new List<Cliente>
-{
-    new Cliente { Id = Guid.Parse("b195a2c3-f255-4ec9-8577-3ed39a2e8b13"), Nome = "Luis", Telefone = "41984707329" },
-    new Cliente { Id = Guid.Parse("a2963d8e-6275-4a4e-a6fc-d6239842e9e6"), Nome = "Victor", Telefone = "41997438180" },
-    new Cliente { Id = Guid.Parse("c94d8e42-64cf-47c8-a1e4-e23cba4c7b8e"), Nome = "Carmem", Telefone = "41963457075" },
-    new Cliente { Id = Guid.Parse("c72a1d82-57f5-4a85-9b11-8bdb327d7b48"), Nome = "Otavio", Telefone = "41988623514" },
-    new Cliente { Id = Guid.Parse("84df3bb1-8f45-49f4-bd3f-5ad0c5b80c62"), Nome = "João Pedro", Telefone = "41999125678" },
-    new Cliente { Id = Guid.Parse("b4625d57-3d2e-4a8e-86af-2b8d8f25f9d5"), Nome = "Luisa", Telefone = "43990842030"},
-    new Cliente { Id = Guid.Parse("234dcb6f-8e56-48f9-8a57-5c34a40d5a7f"), Nome = "Vitória", Telefone = "47988702098" },
-    new Cliente { Id = Guid.Parse("d637f850-29e1-42da-832b-5f7da90d1555"), Nome = "Julia", Telefone = "42988635587" },
-    new Cliente { Id = Guid.Parse("3c8d9ff1-5f3a-47b2-97de-f02462d19f2e"), Nome = "Marcela", Telefone = "41995234578" },
-    new Cliente { Id = Guid.Parse("7ef248d1-7e58-4e84-b0c8-58dc8891d231"), Nome = "Marcia", Telefone = "45987889339" }
-};
+
+List<Cliente> clientes = 
+[   
+    new Cliente { Nome = "Luis", Telefone = "41984707329", Cpf = "1234", Id = Guid.Parse("b195a2c3-f255-4ec9-8577-3ed39a2e8b13") },
+    new Cliente { Nome = "Victor", Telefone = "41997438180", Cpf = "5678", Id = Guid.Parse("a2963d8e-6275-4a4e-a6fc-d6239842e9e6") },
+    new Cliente { Nome = "Carmem", Telefone = "41963457075", Cpf = "9101", Id = Guid.Parse("c94d8e42-64cf-47c8-a1e4-e23cba4c7b8e") },
+    new Cliente { Nome = "Otavio", Telefone = "41988623514", Cpf = "1121", Id = Guid.Parse("c72a1d82-57f5-4a85-9b11-8bdb327d7b48") },
+    new Cliente { Nome = "João Pedro", Telefone = "41999125678", Cpf = "3141", Id = Guid.Parse("84df3bb1-8f45-49f4-bd3f-5ad0c5b80c62") },
+    new Cliente { Nome = "Luisa", Telefone = "43990842030", Cpf = "5161", Id = Guid.Parse("b4625d57-3d2e-4a8e-86af-2b8d8f25f9d5") },
+    new Cliente { Nome = "Vitória", Telefone = "47988702098", Cpf = "7181", Id = Guid.Parse("234dcb6f-8e56-48f9-8a57-5c34a40d5a7f") },
+    new Cliente { Nome = "Julia", Telefone = "42988635587", Cpf = "9202", Id = Guid.Parse("d637f850-29e1-42da-832b-5f7da90d1555") },
+    new Cliente { Nome = "Marcela", Telefone = "41995234578", Cpf = "1222", Id = Guid.Parse("3c8d9ff1-5f3a-47b2-97de-f02462d19f2e") },
+    new Cliente { Nome = "Marcia", Telefone = "45987889339", Cpf = "3242", Id = Guid.Parse("7ef248d1-7e58-4e84-b0c8-58dc8891d231") }
+];
+
 List<Funcionario> funcionarios = new List<Funcionario>
 {
-    new Funcionario{ Id = Guid.Parse("83f5b6e0-2f53-4a8e-90c5-ecf78f0f9e18"), Nome = "Cleiton", Cargo = "Luthier"},
-    new Funcionario{ Id = Guid.Parse("b5bb87f1-bd82-4ad4-88df-bf5af30ad45a"), Nome = "Antônio", Cargo = "Luthier Aprendiz"}
+    new Funcionario{ Id = Guid.Parse("83f5b6e0-2f53-4a8e-90c5-ecf78f0f9e18"), Nome = "Cleiton", Cargo = "Luthier" },
+    new Funcionario{ Id = Guid.Parse("b5bb87f1-bd82-4ad4-88df-bf5af30ad45a"), Nome = "Antônio", Cargo = "Luthier Aprendiz" },
+    new Funcionario{ Id = Guid.Parse("a5aa78f1-bd82-4ad4-88df-bf5af30ad45a"), Nome = "Paulo", Cargo = "Luthier" }
 };
+
 List<OrdemDeServico> ordensServicos = 
 [
-    new OrdemDeServico{ Id = Guid.Parse("3c8d9ff1-5f3a-47b2-97de-f02462d19f2e"), DescricaoServico = "Lustragem", ClienteId = Guid.Parse("c94d8e42-64cf-47c8-a1e4-e23cba4c7b8e"), FuncionarioId = Guid.Parse("83f5b6e0-2f53-4a8e-90c5-ecf78f0f9e18"), Instrumento = "Trombone", Status = "Pendente", ValorEstimado = 130.00},
-    new OrdemDeServico{ Id = Guid.Parse("7ef298d1-7e68-4e84-b2c8-58dc8891d456"), DescricaoServico = "Revisão", ClienteId = Guid.Parse("c72a1d82-57f5-4a85-9b11-8bdb327d7b48"), FuncionarioId = Guid.Parse("b5bb87f1-bd82-4ad4-88df-bf5af30ad45a") , Instrumento = "Fagote", Status = "Pendente", ValorEstimado = 200.00}
+    new OrdemDeServico { DescricaoServico = "Troca da Cortiça", Instrumento = "Clarinete", Status = "Finalizado", ValorEstimado = 106.60, ClienteId = Guid.Parse("b195a2c3-f255-4ec9-8577-3ed39a2e8b13"), FuncionarioId = Guid.Parse("83f5b6e0-2f53-4a8e-90c5-ecf78f0f9e18"), Id = Guid.NewGuid() },
+    new OrdemDeServico { DescricaoServico = "Realinhamento do Braço", Instrumento = "Violão Takamine", Status = "Pendente", ValorEstimado = 560.00, ClienteId = Guid.Parse("a2963d8e-6275-4a4e-a6fc-d6239842e9e6"), FuncionarioId = Guid.Parse("b5bb87f1-bd82-4ad4-88df-bf5af30ad45a"), Id = Guid.NewGuid() },
+    new OrdemDeServico { DescricaoServico = "Lustragem", Instrumento = "Trombone", Status = "Pendente", ValorEstimado = 130.00, ClienteId = Guid.Parse("c94d8e42-64cf-47c8-a1e4-e23cba4c7b8e"), FuncionarioId = Guid.Parse("83f5b6e0-2f53-4a8e-90c5-ecf78f0f9e18"), Id = Guid.NewGuid() },
+    new OrdemDeServico { DescricaoServico = "Troca de cordas e Manutenções Gerais", Instrumento = "Ibanez", Status = "Em Andamento", ValorEstimado = 570.00, ClienteId = Guid.Parse("b4625d57-3d2e-4a8e-86af-2b8d8f25f9d5"), FuncionarioId = Guid.Parse("83f5b6e0-2f53-4a8e-90c5-ecf78f0f9e18"), Id = Guid.NewGuid() },
+    new OrdemDeServico { DescricaoServico = "Revisão", Instrumento = "Fagote", Status = "Pendente", ValorEstimado = 200.00, ClienteId = Guid.Parse("c72a1d82-57f5-4a85-9b11-8bdb327d7b48"), FuncionarioId = Guid.Parse("b5bb87f1-bd82-4ad4-88df-bf5af30ad45a"), Id = Guid.NewGuid() },
+    new OrdemDeServico { DescricaoServico = "Realinhamento do Braço", Instrumento = "Takamine", Status = "Pendente", ValorEstimado = 500.00, ClienteId = Guid.Parse("d637f850-29e1-42da-832b-5f7da90d1555"), FuncionarioId = Guid.Parse("b5bb87f1-bd82-4ad4-88df-bf5af30ad45a"), Id = Guid.NewGuid() },
+    new OrdemDeServico { DescricaoServico = "Troca de trastes", Instrumento = "Violão Yamaha", Status = "Pendente", ValorEstimado = 900.00, ClienteId = Guid.Parse("c94d8e42-64cf-47c8-a1e4-e23cba4c7b8e"), FuncionarioId = Guid.Parse("a5aa78f1-bd82-4ad4-88df-bf5af30ad45a"), Id = Guid.NewGuid() },
+    new OrdemDeServico { DescricaoServico = "Revisão", Instrumento = "Guitarra Gibson", Status = "Pendente", ValorEstimado = 400.00, ClienteId = Guid.NewGuid(), FuncionarioId = Guid.Parse("a5aa78f1-bd82-4ad4-88df-bf5af30ad45a"), Id = Guid.NewGuid() },
+    new OrdemDeServico { DescricaoServico = "Troca de cordas e Manutenções Gerais", Instrumento = "Violão DiGiogio", Status = "Em Andamento", ValorEstimado = 643.00, ClienteId = Guid.Parse("84df3bb1-8f45-49f4-bd3f-5ad0c5b80c62"), FuncionarioId = Guid.Parse("a5aa78f1-bd82-4ad4-88df-bf5af30ad45a"), Id = Guid.NewGuid() },
+    new OrdemDeServico { DescricaoServico = "Revisão", Instrumento = "Contrabaixo", Status = "Finalizado", ValorEstimado = 700.40, ClienteId = Guid.Parse("234dcb6f-8e56-48f9-8a57-5c34a40d5a7f"), FuncionarioId = Guid.Parse("a5aa78f1-bd82-4ad4-88df-bf5af30ad45a"), Id = Guid.NewGuid() }
 ];
 
 //______________________________________________________________________________
@@ -170,17 +182,54 @@ app.MapPut("/ordemservico/alterar", ([FromBody] OrdemDeServico ordemDeServicoAlt
 //______________________________________________________________________________
 //  _____###   Mais Métodos Úteis Para o Nosso Projeto   ###_____
 
-// app.MapPost("", () => 
-// {
+//      Listar as ordens de serviço ordenadas por data de criação
+app.MapGet("/", () =>
+{
+    var ordensOrdenadas = ordensServicos.OrderBy(o => o.CriadoEm).ToList();
+    return Results.Ok(ordensOrdenadas);
+});
 
-// });
-// app.MapPost("", () => 
-// {
+//       Buscar ordens de serviço por descrições semelhantes
+app.MapGet("/buscar/{descricao}", (string descricao) =>
+{
+    var resultado = ordensServicos
+        .Where(o => o.DescricaoServico != null && o.DescricaoServico.Contains(descricao, StringComparison.OrdinalIgnoreCase))
+        .ToList();
+    return Results.Ok(resultado);
+});
 
-// });
-// app.MapPost("", () => 
-// {
+//       Buscar ordens de serviço com status "Em Aberto"
+app.MapGet("/status/aberto", () =>
+{
+    var emAberto = ordensServicos.Where(o => o.Status == "Pendente").ToList();
+    return Results.Ok(emAberto);
+});
 
-// });
+//       Buscar manutenções concluídas de um cliente específico
+app.MapGet("/cliente/{clienteId}/concluidas", (Guid clienteId) =>
+{
+    var concluidas = ordensServicos
+        .Where(o => o.ClienteId == clienteId && o.Status == "Concluída")
+        .ToList();
+    return Results.Ok(concluidas);
+});
+
+//      Buscar todas as manutenções de um cliente (finalizadas ou não)
+app.MapGet("/cliente/{clienteId}/todas", (Guid clienteId) =>
+{
+    var todas = ordensServicos
+        .Where(o => o.ClienteId == clienteId)
+        .ToList();
+    return Results.Ok(todas);
+});
+
+//      Buscar as ordens de serviço realizadas por um funcionário específico
+app.MapGet("/funcionario/{funcionarioId}/concertos", (Guid funcionarioId) =>
+{
+    var concertos = ordensServicos
+        .Where(o => o.FuncionarioId == funcionarioId)
+        .ToList();
+    return Results.Ok(concertos);
+});
 
 app.Run();
