@@ -180,12 +180,15 @@ app.MapPut("/ordemservico/alterar", ([FromBody] OrdemDeServico ordemDeServicoAlt
     return Results.NotFound();
 });
 //______________________________________________________________________________
-//  _____###   Mais Métodos Úteis Para o Nosso Projeto   ###_____
+//  _____###   Filtros de Pesquisa Para o Nosso Projeto   ###_____
 
 //      Listar as ordens de serviço ordenadas por data de criação
 app.MapGet("/", () =>
 {
     var ordensOrdenadas = ordensServicos.OrderBy(o => o.CriadoEm).ToList();
+    if(ordensOrdenadas.Count == 0){
+        return Results.NotFound();
+    }
     return Results.Ok(ordensOrdenadas);
 });
 
@@ -195,6 +198,9 @@ app.MapGet("/buscar/{descricao}", (string descricao) =>
     var resultado = ordensServicos
         .Where(o => o.DescricaoServico != null && o.DescricaoServico.Contains(descricao, StringComparison.OrdinalIgnoreCase))
         .ToList();
+    if(resultado.Count == 0){
+        return Results.NotFound();
+    }
     return Results.Ok(resultado);
 });
 
@@ -202,6 +208,9 @@ app.MapGet("/buscar/{descricao}", (string descricao) =>
 app.MapGet("/status/aberto", () =>
 {
     var emAberto = ordensServicos.Where(o => o.Status == "Pendente").ToList();
+    if(emAberto.Count == 0){
+        return Results.NotFound();
+    }
     return Results.Ok(emAberto);
 });
 
@@ -211,6 +220,9 @@ app.MapGet("/cliente/{clienteId}/concluidas", (Guid clienteId) =>
     var concluidas = ordensServicos
         .Where(o => o.ClienteId == clienteId && o.Status == "Concluída")
         .ToList();
+    if(concluidas.Count == 0){
+        return Results.NotFound();
+    }
     return Results.Ok(concluidas);
 });
 
@@ -220,6 +232,9 @@ app.MapGet("/cliente/{clienteId}/todas", (Guid clienteId) =>
     var todas = ordensServicos
         .Where(o => o.ClienteId == clienteId)
         .ToList();
+    if(todas.Count == 0){
+        return Results.NotFound();
+    }
     return Results.Ok(todas);
 });
 
@@ -229,7 +244,8 @@ app.MapGet("/funcionario/{funcionarioId}/concertos", (Guid funcionarioId) =>
     var concertos = ordensServicos
         .Where(o => o.FuncionarioId == funcionarioId)
         .ToList();
+    if(concertos.Count == 0){
+        return Results.NotFound();
+    }
     return Results.Ok(concertos);
 });
-
-app.Run();
