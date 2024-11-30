@@ -39,9 +39,9 @@ app.MapGet("/api/cliente/buscar/{id}", ([FromRoute] int clienteId, [FromServices
   }
   return Results.Ok(cliente);
 });
-app.MapDelete("/api/cliente/deletar/{id}", ([FromRoute] int id, [FromServices] AppDataContext ctx) => 
+app.MapDelete("/api/cliente/deletar/{id}", ([FromRoute] int clienteId, [FromServices] AppDataContext ctx) => 
 {
-  Cliente? cliente = ctx.Clientes.Find(id);
+  Cliente? cliente = ctx.Clientes.Find(clienteId);
   if (cliente is null)
   {
     return Results.NotFound();
@@ -50,9 +50,9 @@ app.MapDelete("/api/cliente/deletar/{id}", ([FromRoute] int id, [FromServices] A
   ctx.SaveChanges();
   return Results.Ok(ctx.Clientes.ToList());
 });
-app.MapPut("/api/cliente/alterar/{id}", ([FromRoute] int id, [FromBody] Cliente clienteAlterado, [FromServices] AppDataContext ctx) => 
+app.MapPut("/api/cliente/alterar/{id}", ([FromRoute] int clienteId, [FromBody] Cliente clienteAlterado, [FromServices] AppDataContext ctx) => 
 {
-  Cliente? cliente = ctx.Clientes.Find(id);
+  Cliente? cliente = ctx.Clientes.Find(clienteId);
   if (cliente == null)
   {
     return Results.NotFound();
@@ -79,18 +79,18 @@ app.MapPost("/api/funcionario/cadastrar", ([FromBody] Funcionario funcionario, [
   ctx.SaveChanges();
   return Results.Created("Funcionario Cadastrado!", ctx.Funcionarios.ToList());
 });
-app.MapGet("/api/funcionario/buscar/{id}", ([FromRoute] int id, [FromServices] AppDataContext ctx) => 
+app.MapGet("/api/funcionario/buscar/{id}", ([FromRoute] int funcionarioId, [FromServices] AppDataContext ctx) => 
 {
-  Funcionario? funcionario = ctx.Funcionarios.Find(id);
+  Funcionario? funcionario = ctx.Funcionarios.Find(funcionarioId);
   if (funcionario == null)
   {
     return Results.NotFound();
   }
   return Results.Ok(ctx.Funcionarios.ToList());   // To list?? ta errado isso!   Mas tudo bem, afinal não é o projeto final!
 });
-app.MapDelete("/api/funcionario/deletar/{id}", ([FromRoute] int id, [FromServices] AppDataContext ctx) => 
+app.MapDelete("/api/funcionario/deletar/{id}", ([FromRoute] int funcionarioId, [FromServices] AppDataContext ctx) => 
 {
-  Funcionario? funcionario = ctx.Funcionarios.Find(id);
+  Funcionario? funcionario = ctx.Funcionarios.Find(funcionarioId);
   if (funcionario == null)
   {
     return Results.NotFound();
@@ -99,9 +99,9 @@ app.MapDelete("/api/funcionario/deletar/{id}", ([FromRoute] int id, [FromService
   ctx.SaveChanges();
   return Results.Ok(ctx.Funcionarios.ToList());
 });
-app.MapPut("/api/funcionario/alterar/{id}", ([FromRoute] int id, [FromBody] Funcionario funcAlterado, [FromServices] AppDataContext ctx) => 
+app.MapPut("/api/funcionario/alterar/{id}", ([FromRoute] int funcionarioId, [FromBody] Funcionario funcAlterado, [FromServices] AppDataContext ctx) => 
 {
-  Funcionario? funcionario = ctx.Funcionarios.Find(id);
+  Funcionario? funcionario = ctx.Funcionarios.Find(funcionarioId);
   if (funcionario != null)
   {
     funcionario.Nome = funcAlterado.Nome;
@@ -128,18 +128,18 @@ app.MapPost("/api/ordemservico/cadastrar", ([FromBody] OrdemDeServico ordemServi
   ctx.SaveChanges();
   return Results.Created("Ordem de Servico Criada!", ctx.OrdensServicos.ToList());
 });
-app.MapGet("/api/ordemservico/buscar{id}", ([FromRoute] int id, [FromServices] AppDataContext ctx) => 
+app.MapGet("/api/ordemservico/buscar{id}", ([FromRoute] int ordemDeServicoId, [FromServices] AppDataContext ctx) => 
 {
-  OrdemDeServico? ordemServico = ctx.OrdensServicos.Find(id);
+  OrdemDeServico? ordemServico = ctx.OrdensServicos.Find(ordemDeServicoId);
   if (ordemServico is not null)
   {
     return Results.Ok(ordemServico);
   }
   return Results.NotFound();
 });
-app.MapDelete("/api/ordemservico/deletar/{id}", ([FromRoute] int id, [FromServices] AppDataContext ctx) => 
+app.MapDelete("/api/ordemservico/deletar/{id}", ([FromRoute] int ordemDeServicoId, [FromServices] AppDataContext ctx) => 
 {
-  OrdemDeServico? ordemServico = ctx.OrdensServicos.Find(id);
+  OrdemDeServico? ordemServico = ctx.OrdensServicos.Find(ordemDeServicoId);
   if (ordemServico is not null)
   {
     ctx.OrdensServicos.Remove(ordemServico);
@@ -148,9 +148,9 @@ app.MapDelete("/api/ordemservico/deletar/{id}", ([FromRoute] int id, [FromServic
   }
   return Results.NotFound();
 });
-app.MapPut("/api/ordemservico/alterar/{id}", ([FromRoute] int id, [FromBody] OrdemDeServico ordServicoAlterada, [FromServices] AppDataContext ctx) => 
+app.MapPut("/api/ordemservico/alterar/{id}", ([FromRoute] int ordemDeServicoId, [FromBody] OrdemDeServico ordServicoAlterada, [FromServices] AppDataContext ctx) => 
 {
-  OrdemDeServico? ordemServico = ctx.OrdensServicos.Find(id);
+  OrdemDeServico? ordemServico = ctx.OrdensServicos.Find(ordemDeServicoId);
   if (ordemServico != null)
   {
     ordemServico.DescricaoServico = ordServicoAlterada.DescricaoServico;
