@@ -5,13 +5,13 @@
 ###=============================================================================
 ###=============================================================================
 ###               Listar
-GET http://localhost:5028/cliente/
+GET http://localhost:5028/api/cliente/listar
 
 ###               Buscar
-GET http://localhost:5028/cliente/buscar/1234
+GET http://localhost:5028/api/cliente/buscar/12
 
 ###              Cadastrar
-POST http://localhost:5028/cliente/cadastrar
+POST http://localhost:5028/api/cliente/cadastrar
 Content-Type: application/json
 
 {
@@ -21,14 +21,14 @@ Content-Type: application/json
 }
 
 ###              Deletar
-DELETE http://localhost:5028/cliente/deletar/3192
+DELETE http://localhost:5028/api/cliente/deletar/3
 
 ###              Alterar
-PUT http://localhost:5028/cliente/alterar/3192
+PUT http://localhost:5028/api/cliente/alterar/3
 Content-Type: application/json
 
 {
-    "Nome" : "Boris Atualizado",
+    "Nome" : "Junior",
     "Telefone" : "998765432"
 }
 
@@ -39,30 +39,30 @@ Content-Type: application/json
 ###=============================================================================
 ###=============================================================================
 ###              Listar
-GET http://localhost:5028/funcionario/
+GET http://localhost:5028/api/funcionario/listar
 
 ###              Buscar
-GET http://localhost:5028/funcionario/buscar/20
+GET http://localhost:5028/api/funcionario/buscar/2
 
 ###            Cadastrar
-POST http://localhost:5028/funcionario/cadastrar
+POST http://localhost:5028/api/funcionario/cadastrar
 Content-Type: application/json
 
 {
     "Nome" : "Marcos",
     "Cargo" : "Luthier",
-    "Registro" : "27"
+    "NRegistro" : "27"
 }
 ###             Deletar
-DELETE http://localhost:5028/funcionario/deletar/27
+DELETE http://localhost:5028/api/funcionario/deletar/7
 
 ###             Alterar
-PUT http://localhost:5028/funcionario/alterar/27
+PUT http://localhost:5028/api/funcionario/alterar/2
 Content-Type: application/json
 
 {
     "Nome" : "Marcos",
-    "Cargo" : "Luthier Senior",
+    "Cargo" : "Luthier Senior"
 }
 
 ###=============================================================================
@@ -73,35 +73,35 @@ Content-Type: application/json
 ###=============================================================================
 
 ###             Listar 
-GET http://localhost:5028/ordemservico/
+GET http://localhost:5028/api/ordemservico/listar
 
 ###             Buscar
-GET http://localhost:5028/ordemservico/buscar/1
+GET http://localhost:5028/api/ordemservico/buscar/1
 
 ###            Cadastrar
-POST http://localhost:5028/ordemservico/cadastrar/
+POST http://localhost:5028/api/ordemservico/cadastrar/
 Content-Type: application/json
 
 {
-    "DescricaoServico" : "Trocar cortiça",
-    "FuncionarioId" : "1",
-    "Status" : "Pendente",
-    "Instrumento" : "Clarinete",
-    "ClienteId" : "4",
-    "ValorEstimado" : 150.00
+    "DescricaoServico" : "Alinhamento Violao",
+    "Instrumento" : "Takamine",
+    "Status" : "Finalizado",
+    "ClienteId" : "3",
+    "FuncionarioId" : "3",
+    "ValorEstimado" : 11150.00
 }
 
 ###            Deletar
-DELETE http://localhost:5028/ordemservico/deletar/1
+DELETE http://localhost:5028/api/ordemservico/deletar/1
 
 ###            Alterar
-PUT http://localhost:5028/ordemservico/alterar/1
+PUT http://localhost:5028/api/ordemservico/alterar/3
 Content-Type: application/json
 
 {
     "DescricaoServico" : "Trocar cortiça",
     "Status" : "Finalizado",
-    "ValorEstimado" : 150.00
+    "ValorEstimado" : 750.00
 }
 
 ###=============================================================================
@@ -111,19 +111,19 @@ Content-Type: application/json
 ###=============================================================================
 ###=============================================================================
 ###             Listar ordens de serviço ordenadas por data de criação
-GET http://localhost:5028/
+GET http://localhost:5028/ordemservico/listar/OrderBy/DateTime/
 
 ###             Buscar ordens de serviço por descrições semelhantes
-GET http://localhost:5028/buscar/troca
+GET http://localhost:5028/ordemservico/buscar/descricao/Trocar%20cortiça
 
 ###             Buscar ordens de serviço com status "Em Aberto"
-GET http://localhost:5028/status/aberto
+GET http://localhost:5028/ordemservico/status/Em%20Aberto
 
 ###             Buscar manutenções concluídas de um cliente específico
-GET http://localhost:5028/cliente/b195a2c3-f255-4ec9-8577-3ed39a2e8b13/concluidas
+GET http://localhost:5028/ordemservico/finalizadas/cliente/3
 
 ###             Buscar todas as manutenções de um cliente (finalizadas ou não)
-GET http://localhost:5028/cliente/b195a2c3-f255-4ec9-8577-3ed39a2e8b13/todas
+GET http://localhost:5028/ordemservico/todas/cliente/1
 
 ###             Buscar ordens de serviço realizadas por um funcionário específico
-GET http://localhost:5028/funcionario/83f5b6e0-2f53-4a8e-90c5-ecf78f0f9e18/concertos
+GET http://localhost:5028/ordemservico/funcionario/3

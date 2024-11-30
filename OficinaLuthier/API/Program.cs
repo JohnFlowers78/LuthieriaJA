@@ -2,250 +2,265 @@ using API.Models;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<AppDataContext>();
+
+builder.Services.AddCors(options =>
+    options.AddPolicy("Acesso Total",
+        configs => configs
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod())
+);
+
 var app = builder.Build();
 
-
-List<Cliente> clientes = 
-[   
-    new Cliente { Nome = "Luis", Telefone = "41984707329", Cpf = "1234", Id = Guid.Parse("b195a2c3-f255-4ec9-8577-3ed39a2e8b13") },
-    new Cliente { Nome = "Victor", Telefone = "41997438180", Cpf = "5678", Id = Guid.Parse("a2963d8e-6275-4a4e-a6fc-d6239842e9e6") },
-    new Cliente { Nome = "Carmem", Telefone = "41963457075", Cpf = "9101", Id = Guid.Parse("c94d8e42-64cf-47c8-a1e4-e23cba4c7b8e") },
-    new Cliente { Nome = "Otavio", Telefone = "41988623514", Cpf = "1121", Id = Guid.Parse("c72a1d82-57f5-4a85-9b11-8bdb327d7b48") },
-    new Cliente { Nome = "João Pedro", Telefone = "41999125678", Cpf = "3141", Id = Guid.Parse("84df3bb1-8f45-49f4-bd3f-5ad0c5b80c62") },
-    new Cliente { Nome = "Luisa", Telefone = "43990842030", Cpf = "5161", Id = Guid.Parse("b4625d57-3d2e-4a8e-86af-2b8d8f25f9d5") },
-    new Cliente { Nome = "Vitória", Telefone = "47988702098", Cpf = "7181", Id = Guid.Parse("234dcb6f-8e56-48f9-8a57-5c34a40d5a7f") },
-    new Cliente { Nome = "Julia", Telefone = "42988635587", Cpf = "9202", Id = Guid.Parse("d637f850-29e1-42da-832b-5f7da90d1555") },
-    new Cliente { Nome = "Marcela", Telefone = "41995234578", Cpf = "1222", Id = Guid.Parse("3c8d9ff1-5f3a-47b2-97de-f02462d19f2e") },
-    new Cliente { Nome = "Marcia", Telefone = "45987889339", Cpf = "3242", Id = Guid.Parse("7ef248d1-7e58-4e84-b0c8-58dc8891d231") }
-];
-
-List<Funcionario> funcionarios = new List<Funcionario>
-{
-    new Funcionario{ Id = Guid.Parse("83f5b6e0-2f53-4a8e-90c5-ecf78f0f9e18"), Nome = "Cleiton", Cargo = "Luthier" },
-    new Funcionario{ Id = Guid.Parse("b5bb87f1-bd82-4ad4-88df-bf5af30ad45a"), Nome = "Antônio", Cargo = "Luthier Aprendiz" },
-    new Funcionario{ Id = Guid.Parse("a5aa78f1-bd82-4ad4-88df-bf5af30ad45a"), Nome = "Paulo", Cargo = "Luthier" }
-};
-
-List<OrdemDeServico> ordensServicos = 
-[
-    new OrdemDeServico { DescricaoServico = "Troca da Cortiça", Instrumento = "Clarinete", Status = "Finalizado", ValorEstimado = 106.60, ClienteId = Guid.Parse("b195a2c3-f255-4ec9-8577-3ed39a2e8b13"), FuncionarioId = Guid.Parse("83f5b6e0-2f53-4a8e-90c5-ecf78f0f9e18"), Id = Guid.NewGuid() },
-    new OrdemDeServico { DescricaoServico = "Realinhamento do Braço", Instrumento = "Violão Takamine", Status = "Pendente", ValorEstimado = 560.00, ClienteId = Guid.Parse("a2963d8e-6275-4a4e-a6fc-d6239842e9e6"), FuncionarioId = Guid.Parse("b5bb87f1-bd82-4ad4-88df-bf5af30ad45a"), Id = Guid.NewGuid() },
-    new OrdemDeServico { DescricaoServico = "Lustragem", Instrumento = "Trombone", Status = "Pendente", ValorEstimado = 130.00, ClienteId = Guid.Parse("c94d8e42-64cf-47c8-a1e4-e23cba4c7b8e"), FuncionarioId = Guid.Parse("83f5b6e0-2f53-4a8e-90c5-ecf78f0f9e18"), Id = Guid.NewGuid() },
-    new OrdemDeServico { DescricaoServico = "Troca de cordas e Manutenções Gerais", Instrumento = "Ibanez", Status = "Em Andamento", ValorEstimado = 570.00, ClienteId = Guid.Parse("b4625d57-3d2e-4a8e-86af-2b8d8f25f9d5"), FuncionarioId = Guid.Parse("83f5b6e0-2f53-4a8e-90c5-ecf78f0f9e18"), Id = Guid.NewGuid() },
-    new OrdemDeServico { DescricaoServico = "Revisão", Instrumento = "Fagote", Status = "Pendente", ValorEstimado = 200.00, ClienteId = Guid.Parse("c72a1d82-57f5-4a85-9b11-8bdb327d7b48"), FuncionarioId = Guid.Parse("b5bb87f1-bd82-4ad4-88df-bf5af30ad45a"), Id = Guid.NewGuid() },
-    new OrdemDeServico { DescricaoServico = "Realinhamento do Braço", Instrumento = "Takamine", Status = "Pendente", ValorEstimado = 500.00, ClienteId = Guid.Parse("d637f850-29e1-42da-832b-5f7da90d1555"), FuncionarioId = Guid.Parse("b5bb87f1-bd82-4ad4-88df-bf5af30ad45a"), Id = Guid.NewGuid() },
-    new OrdemDeServico { DescricaoServico = "Troca de trastes", Instrumento = "Violão Yamaha", Status = "Pendente", ValorEstimado = 900.00, ClienteId = Guid.Parse("c94d8e42-64cf-47c8-a1e4-e23cba4c7b8e"), FuncionarioId = Guid.Parse("a5aa78f1-bd82-4ad4-88df-bf5af30ad45a"), Id = Guid.NewGuid() },
-    new OrdemDeServico { DescricaoServico = "Revisão", Instrumento = "Guitarra Gibson", Status = "Pendente", ValorEstimado = 400.00, ClienteId = Guid.NewGuid(), FuncionarioId = Guid.Parse("a5aa78f1-bd82-4ad4-88df-bf5af30ad45a"), Id = Guid.NewGuid() },
-    new OrdemDeServico { DescricaoServico = "Troca de cordas e Manutenções Gerais", Instrumento = "Violão DiGiogio", Status = "Em Andamento", ValorEstimado = 643.00, ClienteId = Guid.Parse("84df3bb1-8f45-49f4-bd3f-5ad0c5b80c62"), FuncionarioId = Guid.Parse("a5aa78f1-bd82-4ad4-88df-bf5af30ad45a"), Id = Guid.NewGuid() },
-    new OrdemDeServico { DescricaoServico = "Revisão", Instrumento = "Contrabaixo", Status = "Finalizado", ValorEstimado = 700.40, ClienteId = Guid.Parse("234dcb6f-8e56-48f9-8a57-5c34a40d5a7f"), FuncionarioId = Guid.Parse("a5aa78f1-bd82-4ad4-88df-bf5af30ad45a"), Id = Guid.NewGuid() }
-];
-
-//______________________________________________________________________________
 //  ###Listar Clientes
-app.MapGet("/cliente", () =>
+//==============================================================================
+app.MapGet("/api/cliente/listar", ([FromServices] AppDataContext ctx) => 
 {
-    if(clientes.Count == 0){
-        return Results.NotFound();
-    }
-    return Results.Ok(clientes.ToList());
+  if (ctx.Clientes.Any())
+  {
+    return Results.Ok(ctx.Clientes.ToList());
+  }
+  return Results.NotFound();
 });
-//  ###Cadastrar Clientes
-app.MapPost("/cliente/cadastrar", ([FromBody] Cliente cliente) => {
-    Cliente clienteTemp = cliente;
-    var confere = clientes.FirstOrDefault(x => x.Cpf == clienteTemp.Cpf);
-    if (confere == null){
-        clientes.Add(clienteTemp);
-        return Results.Ok(clienteTemp);
-    }
-    return Results.BadRequest("Cliente já cadastrado");
-});
-//  ###Buscar Clientes
-app.MapGet("cliente/buscar/{cpf}", ([FromRoute] string cpf) => {
-    Cliente? cliente = clientes.FirstOrDefault(x => x.Cpf == cpf);
-    if (cliente == null){
-        return Results.NotFound("Cliente não encontrado");
-    }
-    return Results.Ok(cliente);
-});
-//  ###Alterar Clientes
-app.MapPut("cliente/alterar/{cpf}", ([FromBody] Cliente cliente) => {
-    Cliente? clienteTemp = clientes.FirstOrDefault(x => x.Cpf == cliente.Cpf);
-    if (clienteTemp == null){
-        return Results.NotFound();
-    }
-    clienteTemp.Nome = cliente.Nome;
-    clienteTemp.Telefone = cliente.Telefone;
-    clientes.Add(clienteTemp);
-    return Results.Ok(clienteTemp);
-});
-//  ###Deletar Clientes
-app.MapDelete("cliente/deletar/{cpf}", ([FromRoute] string cpf) => {
-    Cliente? cliente = clientes.FirstOrDefault(x => x.Cpf == cpf);
-    if (cliente == null){
-        return Results.NotFound("Cliente não encontrado");
-    }
-    clientes.Remove(cliente);
-    return Results.Ok(cliente);
-});
-//______________________________________________________________________________
-//  ###Listar Funcionarios
-app.MapGet("/funcionario", () => {
-    return funcionarios;
-});
-//  ###Cadastrar Funcionarios
-app.MapPost("/funcionario/cadastrar", ([FromBody] Funcionario funcionario) => 
+app.MapPost("/api/cliente/cadastrar", ([FromBody] Cliente cliente, [FromServices] AppDataContext ctx) => 
 {
-    funcionarios.Add(funcionario);
-    return Results.Created("", funcionarios);
+  ctx.Clientes.Add(cliente);
+  ctx.SaveChanges();
+  return Results.Created( "Cliente Cadastrado!", ctx.Clientes.ToList());
 });
-//  ###Buscar Funcionarios
-app.MapGet("/funcionario/buscar/{registro}", ([FromRoute] string registro) => 
+app.MapGet("/api/cliente/buscar/{id}", ([FromRoute] int clienteId, [FromServices] AppDataContext ctx) => 
 {
-    Funcionario? funcionario = funcionarios.Find(x => x.Registro == registro);
-    if (funcionario != null)
-    {
-        return Results.Ok(funcionario);
-    }
+  Cliente? cliente = ctx.Clientes.Find(clienteId);
+  if (cliente == null)
+  {
     return Results.NotFound();
+  }
+  return Results.Ok(cliente);
 });
-//  ###Deletar Funcionarios
-app.MapDelete("/funcionario/deletar/{registro}", ([FromRoute] string registro) => 
+app.MapDelete("/api/cliente/deletar/{id}", ([FromRoute] int id, [FromServices] AppDataContext ctx) => 
 {
-    Funcionario? funcionario = funcionarios.Find(x => x.Registro == registro);
-    if (funcionario != null){
-        funcionarios.Remove(funcionario);
-        return Results.Ok(funcionarios);
-    }
+  Cliente? cliente = ctx.Clientes.Find(id);
+  if (cliente is null)
+  {
     return Results.NotFound();
+  }
+  ctx.Clientes.Remove(cliente);
+  ctx.SaveChanges();
+  return Results.Ok(ctx.Clientes.ToList());
 });
-//  ###Alterar Funcionarios
-app.MapPut("/funcionario/alterar/{registro}", ([FromBody] Funcionario funcionarioAlterado) => 
+app.MapPut("/api/cliente/alterar/{id}", ([FromRoute] int id, [FromBody] Cliente clienteAlterado, [FromServices] AppDataContext ctx) => 
 {
-    Funcionario? funcionario = funcionarios.Find(x => x.Id == funcionarioAlterado.Id);
-    if (funcionario != null)
-    {
-        funcionario.Nome = funcionarioAlterado.Nome;
-        funcionario.Cargo = funcionarioAlterado.Cargo;
-        funcionario.Registro = funcionarioAlterado.Registro;
-        return Results.Ok(funcionario);
-    }
+  Cliente? cliente = ctx.Clientes.Find(id);
+  if (cliente == null)
+  {
     return Results.NotFound();
+  }
+  cliente.Nome = clienteAlterado.Nome;
+  cliente.Telefone = clienteAlterado.Telefone;
+  cliente.Cpf = clienteAlterado.Cpf;
+  ctx.Clientes.Update(cliente);
+  ctx.SaveChanges();
+  return Results.Ok(cliente);
 });
-
-//______________________________________________________________________________
-//  ###Listar Ordens_De_Serviços
-app.MapGet("/ordemservico", () => 
+//==============================================================================
+app.MapGet("/api/funcionario/listar", ([FromServices] AppDataContext ctx) => 
 {
-    return ordensServicos;
+  if (ctx.Funcionarios.Any())
+  {
+    return Results.Ok(ctx.Funcionarios.ToList());
+  }
+  return Results.NotFound();
 });
-//  ###Cadastrar Ordens_De_Serviços
-app.MapPost("/ordemservico/cadastrar", ([FromBody] OrdemDeServico ordermDeServico) => 
+app.MapPost("/api/funcionario/cadastrar", ([FromBody] Funcionario funcionario, [FromServices] AppDataContext ctx) => 
 {
-    ordensServicos.Add(ordermDeServico);
-    return Results.Created("", ordensServicos);
+  ctx.Funcionarios.Add(funcionario);
+  ctx.SaveChanges();
+  return Results.Created("Funcionario Cadastrado!", ctx.Funcionarios.ToList());
 });
-//  ###Buscar Ordens_De_Serviços
-app.MapGet("/ordemservico/buscar/{id}", ([FromRoute] Guid id) => 
+app.MapGet("/api/funcionario/buscar/{id}", ([FromRoute] int id, [FromServices] AppDataContext ctx) => 
 {
-    OrdemDeServico? ordemDeServico = ordensServicos.Find(x => x.Id == id);
-    if (ordemDeServico != null)
-    {
-        return Results.Ok(ordemDeServico);
-    }
+  Funcionario? funcionario = ctx.Funcionarios.Find(id);
+  if (funcionario == null)
+  {
     return Results.NotFound();
+  }
+  return Results.Ok(ctx.Funcionarios.ToList());   // To list?? ta errado isso!   Mas tudo bem, afinal não é o projeto final!
 });
-//  ###Deletar Ordens_De_Serviços
-app.MapDelete("/ordemservico/deletar/{id}", ([FromRoute] Guid id) => 
+app.MapDelete("/api/funcionario/deletar/{id}", ([FromRoute] int id, [FromServices] AppDataContext ctx) => 
 {
-    OrdemDeServico? ordemDeServico = ordensServicos.Find(x => x.Id == id);
-    if (ordemDeServico != null)
-    {
-        ordensServicos.Remove(ordemDeServico);
-        return Results.Ok(ordensServicos);
-    }
+  Funcionario? funcionario = ctx.Funcionarios.Find(id);
+  if (funcionario == null)
+  {
     return Results.NotFound();
+  }
+  ctx.Funcionarios.Remove(funcionario);
+  ctx.SaveChanges();
+  return Results.Ok(ctx.Funcionarios.ToList());
 });
-//  ###Alterar Ordens_De_Serviços
-app.MapPut("/ordemservico/alterar", ([FromBody] OrdemDeServico ordemDeServicoAlterada) => 
+app.MapPut("/api/funcionario/alterar/{id}", ([FromRoute] int id, [FromBody] Funcionario funcAlterado, [FromServices] AppDataContext ctx) => 
 {
-    OrdemDeServico? ordemDeServico = ordensServicos.Find(x => x.Id == ordemDeServicoAlterada.Id);
-    if (ordemDeServico != null)
-    {
-        ordemDeServico.DescricaoServico = ordemDeServicoAlterada.DescricaoServico;
-        ordemDeServico.Instrumento = ordemDeServicoAlterada.Instrumento;
-        ordemDeServico.Status = ordemDeServicoAlterada.Status;
-        ordemDeServico.ValorEstimado = ordemDeServicoAlterada.ValorEstimado;
-        return Results.Ok(ordemDeServico);
-    }
-    return Results.NotFound();
+  Funcionario? funcionario = ctx.Funcionarios.Find(id);
+  if (funcionario != null)
+  {
+    funcionario.Nome = funcAlterado.Nome;
+    funcionario.Cargo = funcAlterado.Cargo;
+    funcionario.NRegistro = funcAlterado.NRegistro;
+    ctx.Funcionarios.Update(funcionario);
+    return Results.Ok(funcionario);
+  }
+  return Results.NotFound();
 });
-//______________________________________________________________________________
-//  _____###   Filtros de Pesquisa Para o Nosso Projeto   ###_____
+//==============================================================================
+app.MapGet("/api/ordemservico/listar", ([FromServices] AppDataContext ctx) => 
+{
+  if (ctx.OrdensServicos.Any())
+  {
+    return Results.Ok(ctx.OrdensServicos.ToList());
+        // return Results.Ok(ctx.OrdensServicos.Include(x => x.Funcionario && x.Cliente).ToList());
+  }
+  return Results.NoContent();
+});
+app.MapPost("/api/ordemservico/cadastrar", ([FromBody] OrdemDeServico ordemServico, [FromServices] AppDataContext ctx) => 
+{
+  ctx.OrdensServicos.Add(ordemServico);
+  ctx.SaveChanges();
+  return Results.Created("Ordem de Servico Criada!", ctx.OrdensServicos.ToList());
+});
+app.MapGet("/api/ordemservico/buscar{id}", ([FromRoute] int id, [FromServices] AppDataContext ctx) => 
+{
+  OrdemDeServico? ordemServico = ctx.OrdensServicos.Find(id);
+  if (ordemServico is not null)
+  {
+    return Results.Ok(ordemServico);
+  }
+  return Results.NotFound();
+});
+app.MapDelete("/api/ordemservico/deletar/{id}", ([FromRoute] int id, [FromServices] AppDataContext ctx) => 
+{
+  OrdemDeServico? ordemServico = ctx.OrdensServicos.Find(id);
+  if (ordemServico is not null)
+  {
+    ctx.OrdensServicos.Remove(ordemServico);
+    ctx.SaveChanges();
+    return Results.Ok(ctx.OrdensServicos.ToList());
+  }
+  return Results.NotFound();
+});
+app.MapPut("/api/ordemservico/alterar/{id}", ([FromRoute] int id, [FromBody] OrdemDeServico ordServicoAlterada, [FromServices] AppDataContext ctx) => 
+{
+  OrdemDeServico? ordemServico = ctx.OrdensServicos.Find(id);
+  if (ordemServico != null)
+  {
+    ordemServico.DescricaoServico = ordServicoAlterada.DescricaoServico;
+    ordemServico.Instrumento = ordServicoAlterada.Instrumento;
+    ordemServico.Status = ordServicoAlterada.Status;
+    ordemServico.ValorEstimado = ordServicoAlterada.ValorEstimado;
+    ctx.OrdensServicos.Update(ordemServico);
+    ctx.SaveChanges();
+    return Results.Ok(ordemServico);
+  }
+  return Results.NotFound();
+});
+//==============================================================================
 
-//      Listar as ordens de serviço ordenadas por data de criação
-app.MapGet("/", () =>
+//     F.I.L.T.R.O.S
+//   - - - - - - - - -   
+//==============================================================================
+//     .Listar as ordens de serviço ordenadas por data de criação
+app.MapGet("/ordemservico/listar/OrderBy/DateTime/", ([FromServices] AppDataContext ctx) => 
 {
-    var ordensOrdenadas = ordensServicos.OrderBy(o => o.CriadoEm).ToList();
-    if(ordensOrdenadas.Count == 0){
-        return Results.NotFound();
-    }
-    return Results.Ok(ordensOrdenadas);
+  if (ctx.OrdensServicos.Any())
+  {
+    var ordenadas = ctx.OrdensServicos.OrderBy(x => x.CriadoEm).ToList();
+    return Results.Ok(ordenadas);
+  }
+  return Results.NotFound();
 });
+//     .Buscar ordens de serviço por descrições semelhantes      
+app.MapGet("/ordemservico/buscar/descricao/{DescricaoServico}", ([FromRoute] string DescricaoServico, [FromServices] AppDataContext ctx) => 
+{
+  List<OrdemDeServico> ordens = ctx.OrdensServicos.Where(x => x.DescricaoServico == DescricaoServico).ToList();
+//   List<OrdemDeServico> ordens = ctx.OrdensServicos.Where(x => x.DescricaoServico.Contains(DescricaoServico)).ToList();
+  if (ordens.Any())
+  {
+    return Results.Ok(ordens);
+  }
+  return Results.NotFound();
+});
+//     .Buscar ordens de serviço com status "Em Andamento"    
+app.MapGet("/ordemservico/status/{status}", ([FromRoute] string status, [FromServices] AppDataContext ctx) => 
+{
+  var ordens = ctx.OrdensServicos.Where(x => x.Status == "Em Aberto").ToList();
+  if (ordens.Any())
+  {
+    return Results.Ok(ordens);
+  }
+  return Results.NotFound();
+});
+//     .Buscar manutenções concluídas de um cliente específico     
+app.MapGet("/ordemservico/finalizadas/cliente/{clienteId}", ([FromRoute] int clienteId, [FromServices] AppDataContext ctx) => 
+{
+  var ordens = ctx.OrdensServicos.Where(x => x.ClienteId == clienteId && x.Status == "Finalizado").ToList();
+  if (ordens.Any())
+  {
+    return Results.Ok(ordens);
+  }
+  return Results.NotFound();
+});
+//     .Buscar todas as manutenções de um cliente (finalizadas ou não) 
+app.MapGet("/ordemservico/todas/cliente/{clienteId}", ([FromRoute] int clienteId, [FromServices] AppDataContext ctx) => 
+{
+  var ordens = ctx.OrdensServicos.Where(x => x.ClienteId == clienteId).ToList();
+  if (ordens.Any())
+  {
+    return Results.Ok(ordens);
+  }
+  return Results.NotFound();
+});
+//     .Buscar as ordens de serviço realizadas por um funcionário específico                               
+app.MapGet("/ordemservico/funcionario/{funcionarioId}", ([FromRoute] int funcionarioId, [FromServices] AppDataContext ctx) => 
+{
+  var ordens = ctx.OrdensServicos.Where(x => x.FuncionarioId == funcionarioId).ToList();
+  if (ordens.Any())
+  {
+    return Results.Ok(ordens);
+  }
+  return Results.NotFound();
+});
+//==============================================================================
 
-//       Buscar ordens de serviço por descrições semelhantes
-app.MapGet("/buscar/{descricao}", (string descricao) =>
-{
-    var resultado = ordensServicos
-        .Where(o => o.DescricaoServico != null && o.DescricaoServico.Contains(descricao, StringComparison.OrdinalIgnoreCase))
-        .ToList();
-    if(resultado.Count == 0){
-        return Results.NotFound();
-    }
-    return Results.Ok(resultado);
-});
+app.UseCors("Acesso Total");
 
-//       Buscar ordens de serviço com status "Em Aberto"
-app.MapGet("/status/aberto", () =>
-{
-    var emAberto = ordensServicos.Where(o => o.Status == "Pendente").ToList();
-    if(emAberto.Count == 0){
-        return Results.NotFound();
-    }
-    return Results.Ok(emAberto);
-});
+app.Run();
 
-//       Buscar manutenções concluídas de um cliente específico
-app.MapGet("/cliente/{clienteId}/concluidas", (Guid clienteId) =>
-{
-    var concluidas = ordensServicos
-        .Where(o => o.ClienteId == clienteId && o.Status == "Concluída")
-        .ToList();
-    if(concluidas.Count == 0){
-        return Results.NotFound();
-    }
-    return Results.Ok(concluidas);
-});
 
-//      Buscar todas as manutenções de um cliente (finalizadas ou não)
-app.MapGet("/cliente/{clienteId}/todas", (Guid clienteId) =>
-{
-    var todas = ordensServicos
-        .Where(o => o.ClienteId == clienteId)
-        .ToList();
-    if(todas.Count == 0){
-        return Results.NotFound();
-    }
-    return Results.Ok(todas);
-});
 
-//      Buscar as ordens de serviço realizadas por um funcionário específico
-app.MapGet("/funcionario/{funcionarioId}/concertos", (Guid funcionarioId) =>
-{
-    var concertos = ordensServicos
-        .Where(o => o.FuncionarioId == funcionarioId)
-        .ToList();
-    if(concertos.Count == 0){
-        return Results.NotFound();
-    }
-    return Results.Ok(concertos);
-});
+//==============================================================================
+// 16 - Listar as ordens de serviço ordenadas por data de criação: Retorna
+// todas as ordens de serviço, organizadas pela data de criação.
+
+
+// 17 - Buscar ordens de serviço por descrições semelhantes: Retorna
+// ordens de serviço com descrições que correspondem a um parâmetro
+// específico.
+
+
+// 16 - Buscar ordens de serviço com status "Em Andamento": Retorna
+// ordens de serviço que estão com status pendente.
+
+
+// 19 - Buscar manutenções concluídas de um cliente específico: Retorna
+// ordens de serviço concluídas de um cliente, utilizando o ID do cliente.
+
+
+// 20 - Buscar todas as manutenções de um cliente (finalizadas ou não):
+// Retorna todas as ordens de serviço de um cliente específico,
+// independentemente do status.
+
+
+// 21 - Buscar as ordens de serviço realizadas por um funcionário
+// específico: Retorna ordens de serviço vinculadas a um funcionário,
+// utilizando o ID do funcionário.
+//==============================================================================
