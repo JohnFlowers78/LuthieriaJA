@@ -110,17 +110,17 @@ Content-Type: application/json
 ###     --------------- -----  -----------------                             ###
 ###=============================================================================
 ###=============================================================================
-###             Listar ordens de serviço ordenadas por data de criação
-GET http://localhost:5028/ordemservico/listar/OrderBy/DateTime/
-
 ###             Buscar ordens de serviço por descrições semelhantes
-GET http://localhost:5028/ordemservico/buscar/descricao/Trocar%20cortiça
+GET http://localhost:5028/ordemservico/buscar/descricao/Revisão
 
-###             Buscar ordens de serviço com status "Em Aberto"
-GET http://localhost:5028/ordemservico/status/Em%20Aberto
+###             Buscar ordens de serviço com status "Em Andamento"
+GET http://localhost:5028/ordemservico/status/emAndamento
+
+###             Buscar ordens de serviço com status "Pendente"
+GET http://localhost:5028/ordemservico/status/pendente
 
 ###             Buscar manutenções concluídas de um cliente específico
-GET http://localhost:5028/ordemservico/finalizadas/cliente/3
+GET http://localhost:5028/ordemservico/finalizadas/cliente/1
 
 ###             Buscar todas as manutenções de um cliente (finalizadas ou não)
 GET http://localhost:5028/ordemservico/todas/cliente/1

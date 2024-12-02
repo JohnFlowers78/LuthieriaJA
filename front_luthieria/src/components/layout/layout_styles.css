@@ -1,0 +1,108 @@
+/* Estilos gerais para Nav, Footer e Body */
+html, body {
+  height: 100%; /* Garante que o HTML e o Body ocupem toda a altura da tela */
+  margin: 0; /* Remove margens padrão */
+}
+
+body {
+  display: flex;
+  flex-direction: column; /* Organiza o conteúdo em coluna */
+  min-height: 100vh; /* Garante que o corpo ocupe toda a altura da tela */
+}
+
+main {
+  flex: 1; /* Faz o conteúdo principal ocupar todo o espaço restante */
+}
+
+/* Estilos gerais para Nav e Footer */
+nav, footer {
+  background-color: #1a1a1a; /* Cor preta minimalista */
+  color: #f5f5f5; /* Texto em cor clara para contraste */
+  padding: 16px;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilo base da NAV mantém-se o mesmo */
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  position: relative; /* Necessário para o submenu */
+  margin: 0 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+nav a {
+  color: #f5f5f5;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+/* Submenu escondido inicialmente */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  padding: 10px 0;
+  list-style-type: none;
+  min-width: 200px;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.dropdown-menu li {
+  padding: 8px 16px;
+}
+
+.dropdown-menu li a {
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #555;
+}
+
+/* Mostrar submenu ao passar o mouse */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+nav li:hover {
+  background-color: #333;
+}
+
+
+/* Estilos para Footer */
+footer {
+  background-color: #1a1a1a; /* Cor de fundo */
+  color: #f5f5f5; /* Cor do texto */
+  text-align: center;
+  font-size: 14px;
+  padding: 16px;
+  position: fixed; /* Fixa o footer na tela */
+  bottom: 0; /* Alinha o footer na parte inferior */
+  width: 100%; /* O footer vai ocupar toda a largura */
+  z-index: 1000; /* Garante que o footer fique acima do conteúdo */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column; /* Itens empilhados em telas menores */
+    align-items: center;
+  }
+
+  nav li {
+    margin: 5px 0; /* Menos espaço entre os itens verticalmente */
+  }
+}

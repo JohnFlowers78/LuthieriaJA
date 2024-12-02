@@ -44,7 +44,7 @@ namespace API.Migrations
                         {
                             ClienteId = 1,
                             Cpf = "1234",
-                            CriadoEm = new DateTime(2024, 12, 7, 19, 6, 24, 583, DateTimeKind.Local).AddTicks(9877),
+                            CriadoEm = new DateTime(2024, 12, 8, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(760),
                             Nome = "Luis",
                             Telefone = "41984707329"
                         },
@@ -52,7 +52,7 @@ namespace API.Migrations
                         {
                             ClienteId = 2,
                             Cpf = "5678",
-                            CriadoEm = new DateTime(2024, 12, 8, 19, 6, 24, 583, DateTimeKind.Local).AddTicks(9882),
+                            CriadoEm = new DateTime(2024, 12, 9, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(761),
                             Nome = "Victor",
                             Telefone = "41997438180"
                         },
@@ -60,7 +60,7 @@ namespace API.Migrations
                         {
                             ClienteId = 3,
                             Cpf = "9101",
-                            CriadoEm = new DateTime(2024, 12, 8, 19, 6, 24, 583, DateTimeKind.Local).AddTicks(9885),
+                            CriadoEm = new DateTime(2024, 12, 9, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(763),
                             Nome = "Carmem",
                             Telefone = "41963457075"
                         },
@@ -68,7 +68,7 @@ namespace API.Migrations
                         {
                             ClienteId = 4,
                             Cpf = "1121",
-                            CriadoEm = new DateTime(2024, 12, 8, 19, 6, 24, 583, DateTimeKind.Local).AddTicks(9888),
+                            CriadoEm = new DateTime(2024, 12, 9, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(764),
                             Nome = "Otavio",
                             Telefone = "41988623514"
                         },
@@ -76,7 +76,7 @@ namespace API.Migrations
                         {
                             ClienteId = 5,
                             Cpf = "3141",
-                            CriadoEm = new DateTime(2024, 12, 9, 19, 6, 24, 583, DateTimeKind.Local).AddTicks(9890),
+                            CriadoEm = new DateTime(2024, 12, 10, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(765),
                             Nome = "João Pedro",
                             Telefone = "41999125678"
                         },
@@ -84,7 +84,7 @@ namespace API.Migrations
                         {
                             ClienteId = 6,
                             Cpf = "5161",
-                            CriadoEm = new DateTime(2024, 12, 9, 19, 6, 24, 583, DateTimeKind.Local).AddTicks(9893),
+                            CriadoEm = new DateTime(2024, 12, 10, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(767),
                             Nome = "Luisa",
                             Telefone = "43990842030"
                         },
@@ -92,7 +92,7 @@ namespace API.Migrations
                         {
                             ClienteId = 7,
                             Cpf = "7181",
-                            CriadoEm = new DateTime(2024, 12, 10, 19, 6, 24, 583, DateTimeKind.Local).AddTicks(9895),
+                            CriadoEm = new DateTime(2024, 12, 11, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(768),
                             Nome = "Vitória",
                             Telefone = "47988702098"
                         },
@@ -100,7 +100,7 @@ namespace API.Migrations
                         {
                             ClienteId = 8,
                             Cpf = "9202",
-                            CriadoEm = new DateTime(2024, 12, 10, 19, 6, 24, 583, DateTimeKind.Local).AddTicks(9898),
+                            CriadoEm = new DateTime(2024, 12, 11, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(770),
                             Nome = "Julia",
                             Telefone = "42988635587"
                         },
@@ -108,7 +108,7 @@ namespace API.Migrations
                         {
                             ClienteId = 9,
                             Cpf = "1222",
-                            CriadoEm = new DateTime(2024, 12, 12, 19, 6, 24, 583, DateTimeKind.Local).AddTicks(9901),
+                            CriadoEm = new DateTime(2024, 12, 13, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(771),
                             Nome = "Marcela",
                             Telefone = "41995234578"
                         },
@@ -116,7 +116,7 @@ namespace API.Migrations
                         {
                             ClienteId = 10,
                             Cpf = "3242",
-                            CriadoEm = new DateTime(2024, 12, 12, 19, 6, 24, 583, DateTimeKind.Local).AddTicks(9904),
+                            CriadoEm = new DateTime(2024, 12, 13, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(772),
                             Nome = "Marcia",
                             Telefone = "45987889339"
                         });
@@ -149,21 +149,24 @@ namespace API.Migrations
                         {
                             FuncionarioId = 1,
                             Cargo = "Luthier",
-                            CriadoEm = new DateTime(2024, 12, 2, 19, 6, 24, 583, DateTimeKind.Local).AddTicks(9688),
+                            CriadoEm = new DateTime(2024, 12, 3, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(660),
+                            NRegistro = "333",
                             Nome = "Cleiton"
                         },
                         new
                         {
                             FuncionarioId = 2,
                             Cargo = "Luthier Aprendiz",
-                            CriadoEm = new DateTime(2025, 2, 1, 19, 6, 24, 583, DateTimeKind.Local).AddTicks(9701),
+                            CriadoEm = new DateTime(2025, 2, 2, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(665),
+                            NRegistro = "756",
                             Nome = "Antônio"
                         },
                         new
                         {
                             FuncionarioId = 3,
                             Cargo = "Luthier",
-                            CriadoEm = new DateTime(2025, 2, 15, 19, 6, 24, 583, DateTimeKind.Local).AddTicks(9704),
+                            CriadoEm = new DateTime(2025, 2, 16, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(667),
+                            NRegistro = "986",
                             Nome = "Paulo"
                         });
                 });
@@ -208,7 +211,7 @@ namespace API.Migrations
                         {
                             OrdemDeServicoId = 1,
                             ClienteId = 1,
-                            CriadoEm = new DateTime(2024, 12, 7, 19, 6, 24, 584, DateTimeKind.Local).AddTicks(14),
+                            CriadoEm = new DateTime(2024, 12, 8, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(792),
                             DescricaoServico = "Troca da Cortiça",
                             FuncionarioId = 1,
                             Instrumento = "Clarinete",
@@ -219,7 +222,7 @@ namespace API.Migrations
                         {
                             OrdemDeServicoId = 2,
                             ClienteId = 2,
-                            CriadoEm = new DateTime(2024, 12, 8, 19, 6, 24, 584, DateTimeKind.Local).AddTicks(18),
+                            CriadoEm = new DateTime(2024, 12, 9, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(794),
                             DescricaoServico = "Realinhamento do Braço",
                             FuncionarioId = 2,
                             Instrumento = "Violão Takamine",
@@ -230,7 +233,7 @@ namespace API.Migrations
                         {
                             OrdemDeServicoId = 3,
                             ClienteId = 3,
-                            CriadoEm = new DateTime(2024, 12, 8, 19, 6, 24, 584, DateTimeKind.Local).AddTicks(21),
+                            CriadoEm = new DateTime(2024, 12, 9, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(796),
                             DescricaoServico = "Lustragem",
                             FuncionarioId = 1,
                             Instrumento = "Trombone",
@@ -241,7 +244,7 @@ namespace API.Migrations
                         {
                             OrdemDeServicoId = 4,
                             ClienteId = 6,
-                            CriadoEm = new DateTime(2024, 12, 9, 19, 6, 24, 584, DateTimeKind.Local).AddTicks(25),
+                            CriadoEm = new DateTime(2024, 12, 10, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(798),
                             DescricaoServico = "Troca de cordas e Manutenções Gerais",
                             FuncionarioId = 1,
                             Instrumento = "Ibanez",
@@ -252,7 +255,7 @@ namespace API.Migrations
                         {
                             OrdemDeServicoId = 5,
                             ClienteId = 4,
-                            CriadoEm = new DateTime(2024, 12, 8, 19, 6, 24, 584, DateTimeKind.Local).AddTicks(28),
+                            CriadoEm = new DateTime(2024, 12, 9, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(799),
                             DescricaoServico = "Revisão",
                             FuncionarioId = 2,
                             Instrumento = "Fagote",
@@ -263,7 +266,7 @@ namespace API.Migrations
                         {
                             OrdemDeServicoId = 6,
                             ClienteId = 8,
-                            CriadoEm = new DateTime(2024, 12, 10, 19, 6, 24, 584, DateTimeKind.Local).AddTicks(31),
+                            CriadoEm = new DateTime(2024, 12, 11, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(801),
                             DescricaoServico = "Realinhamento do Braço",
                             FuncionarioId = 2,
                             Instrumento = "Takamine",
@@ -274,7 +277,7 @@ namespace API.Migrations
                         {
                             OrdemDeServicoId = 7,
                             ClienteId = 3,
-                            CriadoEm = new DateTime(2024, 12, 8, 19, 6, 24, 584, DateTimeKind.Local).AddTicks(35),
+                            CriadoEm = new DateTime(2024, 12, 9, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(803),
                             DescricaoServico = "Troca de trastes",
                             FuncionarioId = 3,
                             Instrumento = "Violão Yamaha",
@@ -285,7 +288,7 @@ namespace API.Migrations
                         {
                             OrdemDeServicoId = 8,
                             ClienteId = 10,
-                            CriadoEm = new DateTime(2024, 12, 12, 19, 6, 24, 584, DateTimeKind.Local).AddTicks(38),
+                            CriadoEm = new DateTime(2024, 12, 13, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(804),
                             DescricaoServico = "Revisão",
                             FuncionarioId = 3,
                             Instrumento = "Guitarra Gibson",
@@ -296,7 +299,7 @@ namespace API.Migrations
                         {
                             OrdemDeServicoId = 9,
                             ClienteId = 5,
-                            CriadoEm = new DateTime(2024, 12, 9, 19, 6, 24, 584, DateTimeKind.Local).AddTicks(41),
+                            CriadoEm = new DateTime(2024, 12, 10, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(806),
                             DescricaoServico = "Troca de cordas e Manutenções Gerais",
                             FuncionarioId = 3,
                             Instrumento = "Violão DiGiogio",
@@ -307,7 +310,7 @@ namespace API.Migrations
                         {
                             OrdemDeServicoId = 10,
                             ClienteId = 7,
-                            CriadoEm = new DateTime(2024, 12, 10, 19, 6, 24, 584, DateTimeKind.Local).AddTicks(44),
+                            CriadoEm = new DateTime(2024, 12, 11, 18, 2, 4, 727, DateTimeKind.Local).AddTicks(808),
                             DescricaoServico = "Revisão",
                             FuncionarioId = 3,
                             Instrumento = "Contrabaixo",

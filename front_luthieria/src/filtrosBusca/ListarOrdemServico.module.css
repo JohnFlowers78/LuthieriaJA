@@ -1,0 +1,14 @@
+/* ProdutoLista Component Styles */
+.table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.table th {
+  background-color: #6c757d;
+  color: white;
+}
+
+.table tr:hover {
+  background-color: #f1f1f1;
+}

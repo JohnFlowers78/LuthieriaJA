@@ -17,9 +17,9 @@ public class AppDataContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Funcionario>().HasData(
-            new Funcionario { FuncionarioId = 1, Nome = "Cleiton", Cargo = "Luthier", CriadoEm = DateTime.Now.AddDays(2) },
-            new Funcionario { FuncionarioId = 2, Nome = "Antônio", Cargo = "Luthier Aprendiz", CriadoEm = DateTime.Now.AddDays(63) },
-            new Funcionario { FuncionarioId = 3, Nome = "Paulo", Cargo = "Luthier", CriadoEm = DateTime.Now.AddDays(77) }
+            new Funcionario { FuncionarioId = 1, Nome = "Cleiton", Cargo = "Luthier", NRegistro = "333", CriadoEm = DateTime.Now.AddDays(2) },
+            new Funcionario { FuncionarioId = 2, Nome = "Antônio", Cargo = "Luthier Aprendiz", NRegistro = "756", CriadoEm = DateTime.Now.AddDays(63) },
+            new Funcionario { FuncionarioId = 3, Nome = "Paulo", Cargo = "Luthier", NRegistro = "986", CriadoEm = DateTime.Now.AddDays(77) }
         );
         modelBuilder.Entity<Cliente>().HasData(
             new Cliente { ClienteId = 1, Nome = "Luis", Telefone = "41984707329", Cpf = "1234", CriadoEm = DateTime.Now.AddDays(7) },

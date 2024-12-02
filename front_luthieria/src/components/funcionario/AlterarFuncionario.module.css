@@ -1,0 +1,47 @@
+/* ProdutoAlterar Component Styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza horizontalmente */
+  justify-content: center; /* Centraliza verticalmente */
+  height: 100vh; /* Ocupa a altura total da página */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 500px; /* Limita a largura máxima */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Centraliza o formulário horizontalmente */
+}
+
+input, select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: calc(100% - 20px); /* Ajusta largura para criar espaço */
+}
+
+label {
+  font-weight: bold;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #A9A9A9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: calc(100% - 20px);
+  margin: 0 auto; /* Centraliza o botão */
+}
+
+button:hover {
+  background-color: #FF0000; /* Cor ao passar o mouse */
+}
