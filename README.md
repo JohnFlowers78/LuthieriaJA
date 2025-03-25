@@ -1,6 +1,7 @@
 # LuthieriaJA
 ___________________________________________
-Projeto API destinado a disciplina de C#.
+Projeto API REST destinado a disciplina de C# 
+                e React (TypeScript - Node.Js)
 ___________________________________________
 
  ### Alunos da equipe ¬
