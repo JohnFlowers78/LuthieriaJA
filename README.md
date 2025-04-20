@@ -12,7 +12,7 @@ ___________________________________________
 Este projeto representa o sistema de um  
 estabelecimento de concertos para  
 instrumentos musicais, casa de luthieria.  
-Dentre suas principais fucionalidades,  
+Dentre suas principais fucionalidades, 
 temos um CRUD completo para cliente, 
 usuário e "ordens de serviço".
 
