@@ -67,21 +67,17 @@ em sua máquina e executar os 2 blocos de comandos
 e nos 2 diferentes locais via prompt conforme  
 instruções abaixo  ¬
 
-▸ sendo a pasta LuthieriaJA a raiz do projeto:
+▸ Sendo a pasta LuthieriaJA  ==  Raiz do Projeto:
 
-no local " LuthieriaJA/OficinaLuthier/API "
-
-execute os comandos  ¬
+▸ no local " LuthieriaJA/OficinaLuthier/API " execute os comandos  ¬
 
 1 - dotnet restore
 
 2 - dotnet run
 
-        __________________________
+  ___ // ___ //___ // ___ // ___
         
-no local " LuthieriaJA/front_luthieria "
-
-execute os comandos  ¬
+▸ no local " LuthieriaJA/front_luthieria " execute os comandos  ¬
 
 1 - npm i
 
