@@ -9,9 +9,30 @@ ___________________________________________
 RGM ▸ 29911117
 ___________________________________________
 
-Este projeto representa um estabelecimento 
-de concertos para instrumentos musicais, 
-casa de luthieria.
+  Este projeto representa o sistema de um  
+estabelecimento de concertos para  
+instrumentos musicais, casa de luthieria.  
+Dentre suas principais fucionalidades,  
+temos um CRUD completo para cliente, 
+usuário e "ordens de serviço".
+  Além disso, também temos funcionalidades 
+que servem como filtros. Filtros esses que 
+tem a responsabilidade de facilitar a 
+rotina de trabalho de quem quer que esteja 
+utilizando o sistema. Foi um projeto 
+acadêmico desenvolvido simulando as 
+necessidades reais (ou pelo menos uma 
+parte dela) que um sistema para atendimento 
+à clientes no caixa precisaria.
+  Entre os Filtros temos então:
+▸ Ordens de Serviço em Aberto;
+▸ Ordens de Serviço de um determinado 
+cliente;
+▸ Ordens de Serviço realizadas por determinado 
+funcionário;
+▸ Outras...
+▸ Ainda visa melhorias...
+
 ___________________________________________
 
 Notion Organizer Co-Work -> Link ↘️↘️↘️↘️↘️↘️
@@ -31,10 +52,13 @@ de pacotes do C# que é o .Net da Microsoft.
 LTS == Suporte a Longo Prazo (Long Team Support)
 
 - Baixe a Versão LTS Mais Recente do Node.Js ¬
+  
     -> https://nodejs.org/pt/download
 
 - Baixe a Versão LTS Mais Recente do .Net ¬
+  
     -> https://dotnet.microsoft.com/pt-br/download
+  
 ___________________________________________
 
 Após a instalação dos gerenciadores de pacotes 
@@ -46,16 +70,21 @@ instruções abaixo  ¬
 ▸ sendo a pasta LuthieriaJA a raiz do projeto:
 
 no local " LuthieriaJA/OficinaLuthier/API "
+
 execute os comandos  ¬
 
 1 - dotnet restore
+
 2 - dotnet run
+
         __________________________
         
 no local " LuthieriaJA/front_luthieria "
+
 execute os comandos  ¬
 
 1 - npm i
+
 2 - npm run
 ___________________________________________
 
@@ -67,4 +96,5 @@ apenas quiser ajudar para tentar rodar,
 bastar entrar em contato comigo e pedir 
 ajuda. Será uma honra ajudar e explicar 
 mais.
+
 ___________________________________________
