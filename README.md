@@ -9,12 +9,8 @@ ___________________________________________
 RGM ▸ 29911117
 ___________________________________________
 
-Este projeto representa o sistema de um  
-estabelecimento de concertos para  
-instrumentos musicais, casa de luthieria.  
-Dentre suas principais fucionalidades, 
-temos um CRUD completo para cliente, 
-usuário e "ordens de serviço".
+Este projeto representa o sistema de um estabelecimento de concertos para instrumentos musicais, casa de luthieria. 
+Dentre suas principais fucionalidades, temos um CRUD completo para cliente, usuário e "ordens de serviço".
 
 Além disso, também temos funcionalidades 
 que servem como filtros. Filtros esses que 
@@ -25,14 +21,14 @@ acadêmico desenvolvido simulando as
 necessidades reais (ou pelo menos uma 
 parte dela) que um sistema para atendimento 
 à clientes no caixa precisaria.
-  Entre os Filtros temos então:
-▸ Ordens de Serviço em Aberto;
+    Entre os Filtros temos então:    
+▸ Ordens de Serviço em Aberto;    
 ▸ Ordens de Serviço de um determinado 
-cliente;
+cliente;      
 ▸ Ordens de Serviço realizadas por determinado 
-funcionário;
-▸ Outras...
-▸ Ainda visa melhorias...
+funcionário;    
+▸ Outras...    
+▸ Ainda visa melhorias...    
 
 ___________________________________________
 
