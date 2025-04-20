@@ -5,7 +5,7 @@ Projeto API REST destinado a disciplina de C#
 ___________________________________________
  ### Aluno ¬
  
-- João Pedro Santos Flores
+- João Pedro Santos Flores | 
 RGM ▸ 29911117
 ___________________________________________
 
