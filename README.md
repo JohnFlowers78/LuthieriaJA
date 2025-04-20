@@ -28,7 +28,8 @@ cliente;
 ▸ Ordens de Serviço realizadas por determinado 
 funcionário;    
 ▸ Outras...    
-▸ Ainda visa melhorias...    
+▸ Ainda visa melhorias... 
+
                                   Para Informações Mais Aprofundadas do Projeto, 
                                   Visite o Link da Página de nossos registros 
                                   totais do projeto (Organizer Co-Work). Lá você 
