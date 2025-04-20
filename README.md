@@ -9,13 +9,14 @@ ___________________________________________
 RGM ▸ 29911117
 ___________________________________________
 
-  Este projeto representa o sistema de um  
+Este projeto representa o sistema de um  
 estabelecimento de concertos para  
 instrumentos musicais, casa de luthieria.  
 Dentre suas principais fucionalidades,  
 temos um CRUD completo para cliente, 
 usuário e "ordens de serviço".
-  Além disso, também temos funcionalidades 
+
+Além disso, também temos funcionalidades 
 que servem como filtros. Filtros esses que 
 tem a responsabilidade de facilitar a 
 rotina de trabalho de quem quer que esteja 
@@ -87,10 +88,8 @@ ___________________________________________
 ###  APIs/Projeto Rodando ! ###
 ___________________________________________
 
-# Caso ocorram erros inesperados ou se 
-apenas quiser ajudar para tentar rodar, 
-bastar entrar em contato comigo e pedir 
-ajuda. Será uma honra ajudar e explicar 
-mais.
-
+Caso ocorram erros inesperados ou se 
+apenas quiser ajuda para tentar rodar, 
+bastar entrar em contato comigo e me chamar.
+Será uma honra ajudar e explicar mais.
 ___________________________________________
