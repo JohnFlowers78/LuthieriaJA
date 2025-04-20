@@ -29,6 +29,13 @@ cliente;
 funcionário;    
 ▸ Outras...    
 ▸ Ainda visa melhorias...    
+                                  Para Informações Mais Aprofundadas do Projeto, 
+                                  Visite o Link da Página de nossos registros 
+                                  totais do projeto (Organizer Co-Work). Lá você 
+                                  encontra-rá a documentação deste projeto com 
+                                  todos os End-Points mencionados e explicados 
+                                  um a um.        
+                                             basta só clicar neste link abaixo    ⬇️⬇️⬇️⬇️⬇️
 
 ___________________________________________
 
