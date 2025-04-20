@@ -44,12 +44,12 @@ ___________________________________________
 ###  HOW TO RUN THIS PROJECT ###
 
 Para rodar este projeto serão necessários 
-antes instalar algum gerenciador de pacote 
-para o TypeScript. Neste exemplo vou utilizar 
+antes instalar alguns gerenciadores de pacotes.
+Para o TypeScript, neste exemplo, vou utilizar 
 o Node.Js. Também precisaremos do gerenciador
 de pacotes do C# que é o .Net da Microsoft.
 
-LTS == Suporte a Longo Prazo (Long Team Support)
+* LTS == Suporte a Longo Prazo (Long Team Support)
 
 - Baixe a Versão LTS Mais Recente do Node.Js ¬
   
@@ -67,7 +67,7 @@ em sua máquina e executar os 2 blocos de comandos
 e nos 2 diferentes locais via prompt conforme  
 instruções abaixo  ¬
 
-▸ Sendo a pasta LuthieriaJA  ==  Raiz do Projeto:
+* Sendo a pasta LuthieriaJA  ==  Raiz do Projeto:
 
 ▸ no local " LuthieriaJA/OficinaLuthier/API " execute os comandos  ¬
 
