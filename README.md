@@ -29,14 +29,15 @@ cliente;
 funcionário;    
 ▸ Outras...    
 ▸ Ainda visa melhorias... 
+    
 
-                                  Para Informações Mais Aprofundadas do Projeto, 
-                                  Visite o Link da Página de nossos registros 
-                                  totais do projeto (Organizer Co-Work). Lá você 
-                                  encontra-rá a documentação deste projeto com 
-                                  todos os End-Points mencionados e explicados 
-                                  um a um.        
-                                             basta só clicar neste link abaixo    ⬇️⬇️⬇️⬇️⬇️
+  -    Para Informações Mais Aprofundadas do Projeto, 
+  -    Visite o Link da Página de nossos registros 
+  -    totais do projeto (Organizer Co-Work). Lá você 
+  -    encontra-rá a documentação deste projeto com 
+  -    todos os End-Points mencionados e explicados 
+  -    um a um.        
+         ->    basta só clicar neste link abaixo    ⬇️⬇️⬇️⬇️⬇️
 
 ___________________________________________
 
@@ -74,19 +75,19 @@ instruções abaixo  ¬
 
 * Sendo a pasta LuthieriaJA  ==  Raiz do Projeto:
 
-▸ no local " LuthieriaJA/OficinaLuthier/API " execute os comandos  ¬
+▸ no local " LuthieriaJA/OficinaLuthier/API " execute os 2 comandos  ¬
 
-1 - dotnet restore
+      dotnet restore
 
-2 - dotnet run
+      dotnet run
 
   ___ // ___ //___ // ___ // ___
         
-▸ no local " LuthieriaJA/front_luthieria " execute os comandos  ¬
+▸ no local " LuthieriaJA/front_luthieria " execute os 2 comandos  ¬
 
-1 - npm i
+      npm i
 
-2 - npm run
+      npm run
 ___________________________________________
 
 ###  APIs/Projeto Rodando ! ###
